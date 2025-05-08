@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Arduino
+*.hex
+*.elf
+
+# 音檔與暫存
+*.wav
+*.m4a
+*.mp3
+Temp/
+
+# 環境設定
+.env
+*.venv/
