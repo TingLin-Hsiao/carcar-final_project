@@ -8,11 +8,11 @@
 const int stepPin = 3; 
 const int dirPin = 4; 
 
-nail_list = [1,37,42,6,184,200,124]
+// nail_list = [1,37,42,6,184,200,124]
 
-void next_step(prev,nxt){
+// void next_step(prev,nxt){
   
-}
+// }
 
 void setup() {
   // Sets the two pins as Outputs
