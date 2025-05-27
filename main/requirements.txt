@@ -1,5 +1,0 @@
-python-Pillow
-numpy
-scikit-image
-matplotlib
-opencv-contrib-python
