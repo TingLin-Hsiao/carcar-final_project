@@ -5,7 +5,7 @@ from skimage.draw import line
 
 
 class StringArtGenerator:
-    def __init__(self, image_path, num_nails=200, num_lines=3500, radius=300, weight=30.0):
+    def __init__(self, image_path, num_nails=200, num_lines=2000, radius=300, weight=30.0):
         self.num_nails = num_nails
         self.num_lines = num_lines
         self.radius = radius
