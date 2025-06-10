@@ -2,10 +2,13 @@ from PIL import Image, ImageOps, ImageFilter
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.draw import line
+import serial
+import time
+
 
 
 class StringArtGenerator:
-    def __init__(self, image_path, num_nails=200, num_lines=2000, radius=300, weight=30.0):
+    def __init__(self, image_path, num_nails=200, num_lines=3500, radius=300, weight=30.0):
         self.num_nails = num_nails
         self.num_lines = num_lines
         self.radius = radius
@@ -122,10 +125,22 @@ class StringArtGenerator:
         a = np.sum(np.abs(self.drawed-self.image))
         return a
     
+    def send_serial(self):
+        point_order = self.point_sequence.copy()
+        ser = serial.Serial('COM3', 9600)
+        time.sleep(2)
+        
+        for point in point_order:
+            ser.write(f"{point}\n".encode())  # Send nail index with newline
+            ack = ser.readline().decode().strip()  # Wait for Arduino's ACK
+            print(f"Arduino responded: {ack}")
+
+        ser.close()
+                
 gen = StringArtGenerator("Yee.png")
 
 gen.run()
 gen.plot_result()
+# gen.semd_serial()
 
-
-#釘子順序:gen.point_sequence
+### 釘子順序:gen.point_sequence
