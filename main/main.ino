@@ -52,15 +52,17 @@ void moveSteps(int steps, bool clockwise) {
 }
 
 void walk(int distance, bool clockwise) {
+  moveSteps(return_steps, !clockwise);
+  delay(500);
+  myServo.write(angle_up);
+  delay(500);
+
   moveSteps(distance, clockwise);
   delay(500); 
   myServo.write(angle_down);    
   delay(500);
 
-  moveSteps(return_steps, !clockwise);
-  delay(500);
-  myServo.write(angle_up);
-  delay(500);
+  
 }
 
 void loop() {
@@ -71,14 +73,14 @@ void loop() {
   for(int i=0; i<num; i++){
     int distance =((nail_list[i+1] - nail_list[i]+nail_count)%nail_count)*ratio;
     if (distance<200){
-      if(last_clockwise) walk(distance+1,1);
-      if(!last_clockwise) walk(distance-1,1);
-      int last_clockwise = 1;
+      if(last_clockwise) walk(distance+1*ratio,1);
+      if(!last_clockwise) walk(distance-1*ratio,1);
+      last_clockwise = 1;
     }else{
       distance = 400 - distance;
-      if(last_clockwise) walk(distance-1,0);
-      if(!last_clockwise) walk(distance+1,0);
-      int last_clockwise = 0;
+      if(last_clockwise) walk(distance-1*ratio,0);
+      if(!last_clockwise) walk(distance+1*ratio,0);
+      last_clockwise = 0;
     }
   }
   delay(10000);
