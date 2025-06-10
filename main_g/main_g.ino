@@ -10,8 +10,8 @@ const int nail_count = 200;
 
 int nail_list[] = {};
 //0 8 16 24 16 24 32
-int angle_up = 100;                              //need to be measured
-int angle_down = 80;
+int angle_up = 95-13;                              //need to be measured
+int angle_down = 85-13;
 
 
 void setup() {
@@ -42,6 +42,8 @@ void moveSteps(int steps, bool clockwise) {
       delay_us = 1000;
     }
 
+    if(steps==return_steps) delay_us = 2000;
+
     digitalWrite(stepPin, HIGH);
     delayMicroseconds(delay_us);
     digitalWrite(stepPin, LOW);
@@ -55,7 +57,7 @@ void loop() {
   delay(3000);
   int num = sizeof(nail_list) / sizeof(nail_list[0])-1;
   for(int i=0; i<nail_count; i++){
-    int distance =((nail_list[i+1] - nail_list[i]+1+nail_count)%nail_count+1)*2;
+    int distance =((nail_list[i+1] - nail_list[i]+1+nail_count)%nail_count)*2;
     distance = (67+1)*2;
     moveSteps(distance, true);
     delay(500); 
@@ -71,6 +73,7 @@ void loop() {
     
   }
   delay(10000);
+  exit(0);
 }
 
 
