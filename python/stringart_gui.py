@@ -35,7 +35,7 @@ class StringArtGenerator:
             right = width
             top = (height-width)//2
             bottom = top+width
-        img = img.crop((left,top-20,right,bottom-20))
+        img = img.crop((left,top,right,bottom))
         # img.show()
         img = ImageOps.invert(img)
         img = ImageOps.autocontrast(img)
