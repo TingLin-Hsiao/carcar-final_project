@@ -8,7 +8,7 @@ import cv2
 from itertools import combinations
 from concurrent.futures import ThreadPoolExecutor
 
-IMAGE_FILE = "test.png"
+IMAGE_FILE = "hushih.jpg"
 IMAGE_SIZE = (300, 300)
 POINT_NUMBER = 200
 LINE_PIXEL = {}
